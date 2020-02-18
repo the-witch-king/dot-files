@@ -82,6 +82,12 @@ hi Comment cterm=italic
 " set background=dark
 
 "--------------------------
+" Search Commands
+"--------------------------
+command! -bang -nargs=* All
+    \ call fzf#run(fzf#wrap({'source': 'rg --files --hidden --no-ignore-vcs --glob "!{node_modules/*, .git/*}"', 'down': '40%', 'options': '--expect=ctrl-t,ctrl-x,ctrl-v --multi' }))
+
+"--------------------------
 "Mappings
 "--------------------------
 "These are the mappins I like. You might hate them.
@@ -90,7 +96,8 @@ hi Comment cterm=italic
 "you should learn.
 let mapleader = "\<space>"
 nmap <leader>/ :nohlsearch<cr> | "Clear search highlight.
-map <leader>f :FZF<CR> | "Search files
+map <leader>f :All<cr> | "Search files
+"map <leader>f :FZF<CR> | "Search files, leaving for posterity
 map <leader>h :History<CR> | "Search Recent files
 map <leader><space> :Rg<CR> | "Search in project files
 map <leader>G :Grepper -tool rg<cr>

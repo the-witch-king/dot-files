@@ -115,4 +115,8 @@ alias ngrok="~/scripts/ngrok http -host-header=local.api.humi.ca local.api.humi.
 # We use nvim for everything.
 alias vim="nvim"
 
+# FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Docker-compose shortcut cause I'm lazy
+alias dc="docker-compose"
