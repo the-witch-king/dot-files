@@ -1,5 +1,5 @@
 "--------------------------
-"Tom's Vim RC 
+" Mike's VIM RC based off of Tom's VIM RC
 "--------------------------
 "
 "These are my NeoVim settings, but they should work with standard vim, too
@@ -27,6 +27,7 @@ Plug 'tpope/vim-surround'| "Surround text with quotes, brackets, ect.
 Plug 'tpope/vim-vinegar'| "Makes the default vim file tree (netrw) much better
 Plug 'mhinz/vim-grepper'| "Vim Grepper for RipGrep -> quickFix list
 Plug 'rhysd/git-messenger.vim'| "Git lens
+Plug 'unblevable/quick-scope'| "Unique character highlighting
 call plug#end()
 "--------------------------
 "Foundational settings
