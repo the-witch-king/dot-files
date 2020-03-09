@@ -16,5 +16,6 @@
     "ruby"
   ],
   "solargraph.formatting": true,
-  "solargraph.diagnostics": true
+  "solargraph.diagnostics": true,
+  "coc.preferences.extensionUpdateCheck": "never"
 }
