@@ -14,22 +14,21 @@
 "You MUST install these using :PlugInstall
 
 call plug#begin('~/nvim/plugged')
- Plug 'HerringtonDarkholme/yats.vim' | "TS Syntax
- Plug 'itchyny/lightline.vim'
- Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | "Installs FZF on the system.
- Plug 'junegunn/fzf.vim' | "Fuzzy find. Find in project. Find file by name. Regex search. Much more.
- Plug 'meain/vim-printer'
- Plug 'neoclide/coc.nvim', {'branch': 'release'}| "COC Vim is the backbone of modern Vim. It does all the IDE stuff.
- Plug 'tpope/vim-abolish' | "Text manipulation, including conversion to snake_case and camelCase.
- Plug 'tpope/vim-commentary' | "Add comments to code.
- Plug 'tpope/vim-fugitive'| "Git in Vim. Lots to learn, but really good.
- Plug 'tpope/vim-surround'| "Surround text with quotes, brackets, ect.
- Plug 'tpope/vim-vinegar'| "Makes the default vim file tree (netrw) much better
- Plug 'mhinz/vim-grepper'| "Vim Grepper for RipGrep -> quickFix list
- Plug 'rhysd/git-messenger.vim'| "Git lens
- Plug 'unblevable/quick-scope'| "Unique character highlighting
+Plug 'HerringtonDarkholme/yats.vim' | "TS Syntax
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | "Installs FZF on the system.
+Plug 'junegunn/fzf.vim' | "Fuzzy find. Find in project. Find file by name. Regex search. Much more.
+Plug 'meain/vim-printer'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}| "COC Vim is the backbone of modern Vim. It does all the IDE stuff.
+Plug 'tpope/vim-abolish' | "Text manipulation, including conversion to snake_case and camelCase.
+Plug 'tpope/vim-commentary' | "Add comments to code.
+Plug 'tpope/vim-fugitive'| "Git in Vim. Lots to learn, but really good.
+Plug 'tpope/vim-surround'| "Surround text with quotes, brackets, ect.
+Plug 'tpope/vim-vinegar'| "Makes the default vim file tree (netrw) much better
+Plug 'mhinz/vim-grepper'| "Vim Grepper for RipGrep -> quickFix list
+Plug 'rhysd/git-messenger.vim'| "Git lens
+Plug 'unblevable/quick-scope'| "Unique character highlighting
 call plug#end()
-
 "--------------------------
 "Foundational settings
 "--------------------------
@@ -63,9 +62,6 @@ nnoremap <C-H> <C-W><C-H>
 " This is the default behaviour of most other editors
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
 autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-
-" Popup menu colors
-highlight Pmenu ctermbg=gray guibg=gray
 
 "--------------------------
 "Search settings
