@@ -111,6 +111,11 @@ let g:vim_printer_items = {
 "--------------------------
 "COC
 "--------------------------
+highlight Pmenu ctermbg=gray guibg=gray
+
+"--------------------------
+"COC
+"--------------------------
 "EVERYTHING below is COC Vim
 "This makes vim behave like an IDE
 
