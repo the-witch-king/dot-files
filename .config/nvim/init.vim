@@ -63,6 +63,9 @@ nnoremap <C-H> <C-W><C-H>
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
 autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
+" Make tab completion work like bash
+set wildmode=longest,list,full
+
 "--------------------------
 "Search settings
 "--------------------------
