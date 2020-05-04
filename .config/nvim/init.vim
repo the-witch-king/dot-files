@@ -15,7 +15,7 @@
 
 call plug#begin('~/nvim/plugged')
 Plug 'HerringtonDarkholme/yats.vim' | "TS Syntax
-Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim' | "Status Bar
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | "Installs FZF on the system.
 Plug 'junegunn/fzf.vim' | "Fuzzy find. Find in project. Find file by name. Regex search. Much more.
 Plug 'meain/vim-printer'
@@ -28,7 +28,10 @@ Plug 'tpope/vim-vinegar'| "Makes the default vim file tree (netrw) much better
 Plug 'mhinz/vim-grepper'| "Vim Grepper for RipGrep -> quickFix list
 Plug 'rhysd/git-messenger.vim'| "Git lens
 Plug 'unblevable/quick-scope'| "Unique character highlighting
+Plug 'ap/vim-css-color'| "CSS Color highlighting
+Plug 'sheerun/vim-polyglot' | "A language pack
 call plug#end()
+
 "--------------------------
 "Foundational settings
 "--------------------------
@@ -65,6 +68,9 @@ autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. B
 
 " Make tab completion work like bash
 set wildmode=longest,list,full
+
+" Live substitution
+set inccommand=nosplit
 
 "--------------------------
 "Search settings
