@@ -98,10 +98,19 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# vi mode
+bindkey -v
+export KEYTIMEOUT=1
+
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Docker Sync Doodoo
+if which ruby >/dev/null && which gem >/dev/null; then
+  PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
 
 # Wifi Issue Fix
 alias restartWifi="sudo modprobe -r brcmfmac; sudo modprobe -i brcmfmac;"
@@ -110,7 +119,7 @@ alias restartWifi="sudo modprobe -r brcmfmac; sudo modprobe -i brcmfmac;"
 alias git-clean='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 
 # NGROK
-alias ngrok="~/scripts/ngrok http -host-header=local.api.humi.ca local.api.humi.ca:80"
+alias ngrok="~/scripts/ngrok http localhost:80"
 
 # We use nvim for everything.
 alias vim="nvim"
@@ -120,3 +129,11 @@ alias vim="nvim"
 
 # Docker-compose shortcut cause I'm lazy
 alias dc="docker-compose"
+
+# Humi
+alias humi="cd ~/code/humility"
+alias ui="cd ~/code/humility/applications/ui"
+alias hr="cd ~/code/humility/applications/hr"
+alias payroll="cd ~/code/humility/applications/payroll"
+alias admin="cd ~/code/humility/applications/admin"
+alias uir="dc down && dc up -d && dc logs -f ui"
