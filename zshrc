@@ -102,24 +102,10 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v
 export KEYTIMEOUT=1
 
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Docker Sync Doodoo
-if which ruby >/dev/null && which gem >/dev/null; then
-  PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-fi
-
-# Wifi Issue Fix
-alias restartWifi="sudo modprobe -r brcmfmac; sudo modprobe -i brcmfmac;"
+alias src="source ~/.zshrc" 
 
 # Clear Branches
 alias git-clean='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
-
-# NGROK
-alias ngrok="~/scripts/ngrok http localhost:80"
 
 # We use nvim for everything.
 alias vim="nvim"
@@ -130,10 +116,17 @@ alias vim="nvim"
 # Docker-compose shortcut cause I'm lazy
 alias dc="docker-compose"
 
-# Humi
-alias humi="cd ~/code/humility"
-alias ui="cd ~/code/humility/applications/ui"
-alias hr="cd ~/code/humility/applications/hr"
-alias payroll="cd ~/code/humility/applications/payroll"
-alias admin="cd ~/code/humility/applications/admin"
-alias uir="dc down && dc up -d && dc logs -f ui"
+# Docker stuff
+function dockerRemoveImages() {
+  docker rmi -f $(docker images -aq)
+}
+
+# Useful terminal command improvements
+alias ls="lsd -a"
+alias cat="batcat"
+alias mv="mv -iv"
+alias cp="cp -riv"
+alias mkdir="mkdir -vp"
+
+# direnv
+eval "$(direnv hook zsh)"
