@@ -13,8 +13,23 @@ nmap("<C-H>", "<C-W><C-H>")
 nmap(leader.."pp", [[ :let @+=expand("%") ]]..cr)
 
 -- Search commands
-nmap(leader.."f", ":GFiles"..cr)
 nmap(leader.."/", ":nohlsearch"..cr)
 nmap(leader.."h", ":History"..cr)
 nmap(leader.."G", ":Grepper -tool rg"..cr)
-nmap(leader.."<space>", ":Rg"..cr)
+
+-- netrw
+nmap('-', ":Explore<CR>")
+
+-- Telescope
+vim.keymap.set('n', leader.."f", require('telescope.builtin').find_files)
+vim.keymap.set('n', leader..leader, require('telescope.builtin').live_grep)
+vim.keymap.set('n', leader.."h", require('telescope.builtin').oldfiles)
+vim.keymap.set('n', leader.."km", require('telescope.builtin').keymaps)
+vim.keymap.set('n', leader.."kc", require('telescope.builtin').commands)
+vim.keymap.set('n', leader.."mm", require('telescope.builtin').marks)
+
+-- Nvim Tree
+local increment = 10
+nmap(leader.."tt", " :NvimTreeToggle<CR> ")
+-- nmap(leader.."tp", " :NvimTreeResize +"..increment.."<CR> ")
+-- nmap(leader.."tP", " :NvimTreeResize -"..increment.."<CR> ")
