@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/Users/mike/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
+  ["cellular-automaton.nvim"] = {
+    loaded = true,
+    path = "/Users/mike/.local/share/nvim/site/pack/packer/start/cellular-automaton.nvim",
+    url = "https://github.com/eandrju/cellular-automaton.nvim"
+  },
   ["git-messenger.vim"] = {
     loaded = true,
     path = "/Users/mike/.local/share/nvim/site/pack/packer/start/git-messenger.vim",

@@ -52,7 +52,8 @@ require('packer').startup(function(use)
       tag = 'nightly'
     }
 
-
+    -- For fun
+    use 'eandrju/cellular-automaton.nvim' 
     
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
@@ -73,13 +74,16 @@ require('lualine').setup {
   },
 }
 
-
 -- Telescope 
 -- See `:help telescope` and `:help telescope.setup()`
-require('telescope').setup {}
 pcall(require('telescope').load_extension, 'fzf') -- Enable telescope fzf native, if installed
-
-
+require('telescope').setup {
+  pickers = {
+    find_files = {
+      hidden = true
+    }
+  }
+}
 
 -- Gitsigns
 -- See `:help gitsigns.txt`
@@ -97,4 +101,15 @@ require('gitsigns').setup {
 require('Comment').setup()
 
 -- Tree
-require('nvim-tree').setup()
+require('nvim-tree').setup({
+  view = {
+    adaptive_size = true
+  },
+  -- Maybe we don't want this, maybe we do. Let's see.
+  -- actions = {
+  --   open_file = {
+  --     quit_on_open = true
+  --   }
+  -- }
+})
+

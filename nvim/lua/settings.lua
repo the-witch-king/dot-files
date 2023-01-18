@@ -20,7 +20,7 @@ o.hlsearch = true
 o.incsearch = true
 
 -- Whitespace and such
-o.formatoptions = 'qnj1' -- q  - comment formatting; n - numbered lists; j - remove comment when joining lines; 1 - don't break after one-letter word
+o.formatoptions = 'rnj1' -- q  - comment formatting; n - numbered lists; j - remove comment when joining lines; 1 - don't break after one-letter word
 
 
 -- Indentation settings
@@ -37,6 +37,8 @@ g.maplocalleader = " "
 
 -- Folding
 o.fdm = "syntax"
+o.foldlevelstart = 4
+
 
 -- Save undo history
 o.undofile = true
