@@ -10,7 +10,6 @@ nmap("<C-K>", "<C-W><C-K>")
 nmap("<C-L>", "<C-W><C-L>")
 nmap("<C-H>", "<C-W><C-H>")
 
-
 -- Copy filename + path (relative) to clipboard
 nmap(leader.."pp", [[ :let @+=expand("%") ]]..cr)
 
@@ -34,4 +33,4 @@ set('n', leader.."kc", require(tb).commands)
 set('n', leader.."mm", require(tb).marks)
 
 -- Nvim Tree
-nmap(leader.."-", ":NvimTreeFindFileToggle"..cr)
+nmap(leader.."-", ":Neotree"..cr)

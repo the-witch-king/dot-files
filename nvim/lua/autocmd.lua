@@ -15,3 +15,14 @@ cmd [[ syntax on ]]
 cmd [[ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif ]]
 cmd [[ autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None ]]
 
+-- Make background transparent
+cmd [[ hi Normal guibg=none ctermbg=none ]]
+cmd [[ hi LineNr guibg=none ctermbg=none ]]
+cmd [[ hi Folded guibg=none ctermbg=none ]]
+cmd [[ hi NonText guibg=none ctermbg=none ]]
+cmd [[ hi SpecialKey guibg=none ctermbg=none ]]
+cmd [[ hi VertSplit guibg=none ctermbg=none ]]
+cmd [[ hi SignColumn guibg=none ctermbg=none ]]
+cmd [[ hi EndOfBuffer guibg=none ctermbg=none ]]
+-- Vertsplit no highlight please
+cmd [[ hi VertSplit guibg=none ctermbg=none ]]

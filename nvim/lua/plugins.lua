@@ -14,47 +14,92 @@ local packer_bootstrap = ensure_packer()
 
 require('packer').startup(function(use)
     -- Default
-    use "wbthomason/packer.nvim"
+    use 'wbthomason/packer.nvim'
+
+    -- LSP zero
+    -- This is all copy pasta'd from their official docs
+    use {
+      'VonHeikemen/lsp-zero.nvim',
+      requires = {
+        -- LSP Support
+        {'neovim/nvim-lspconfig'},             -- Required
+        {'williamboman/mason.nvim'},           -- Optional
+        {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+        -- Autocompletion
+        {'hrsh7th/nvim-cmp'},                  -- Required
+        {'hrsh7th/cmp-nvim-lsp'},              -- Required
+        {'hrsh7th/cmp-buffer'},                -- Optional
+        {'hrsh7th/cmp-path'},                  -- Optional
+        {'saadparwaiz1/cmp_luasnip'},          -- Optional
+        {'hrsh7th/cmp-nvim-lua'},              -- Optional
+
+        -- Snippets
+        {'L3MON4D3/LuaSnip'},                  -- Required
+        {'rafamadriz/friendly-snippets'},      -- Optional
+      }
+    }
+
+    -- Treesitter
+    use { -- Highlight, edit, and navigate code
+      'nvim-treesitter/nvim-treesitter',
+      run = function()
+        pcall(require('nvim-treesitter.install').update { with_sync = true })
+      end,
+    }
+    use { -- Additional text objects via treesitter
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      after = 'nvim-treesitter',
+    }
 
     -- Colors, Themes, and Visuals
-    use 'navarasu/onedark.nvim'
+    use { 'catppuccin/nvim', as = 'catppuccin' }
     use 'nvim-lualine/lualine.nvim' -- Fancier statusline
 
     -- Detect tabstop and shiftwidth automatically
     use 'tpope/vim-sleuth'
 
-
     -- Editing Utils
-    use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
-
-    -- Search
-    use "mhinz/vim-grepper" -- Vim Grepper for RipGrep -> quickFix list
-    use "unblevable/quick-scope" -- Unique character highlighting
+    use 'numToStr/Comment.nvim' -- 'gc' to comment visual regions/lines
 
     -- Telescope; Fuzzy Finder (files, lsp, etc)
     use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
-    -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
+    -- Get better at vim
+    use 'unblevable/quick-scope' -- Unique character highlighting
 
     -- Git
-    use "tpope/vim-fugitive" -- Git in Vim
+    use 'tpope/vim-fugitive' -- Git in Vim
     use 'tpope/vim-rhubarb' -- Github in Vim
-    use 'rhysd/git-messenger.vim' -- "Git lens
+    use 'rhysd/git-messenger.vim' -- 'Git lens
     use 'lewis6991/gitsigns.nvim' -- Shows git status of lines in gutter
 
-    -- Pretty icons
-    use { 
-      'nvim-tree/nvim-tree.lua',
+    -- File tree
+    use({
+      'nvim-neo-tree/neo-tree.nvim',
+      branch = 'v2.x',
       requires = {
-        'nvim-tree/nvim-web-devicons', -- Icons, duh
+        'nvim-lua/plenary.nvim',
+        'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+        'MunifTanjim/nui.nvim',
       },
-      tag = 'nightly'
-    }
+
+      config = function()
+        -- Unless you are still migrating, remove the deprecated commands from v1.x
+        vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+
+        -- If you want icons for diagnostic errors, you'll need to define them somewhere:
+        vim.fn.sign_define('DiagnosticSignError', { text = ' ', texthl = 'DiagnosticSignError' })
+        vim.fn.sign_define('DiagnosticSignWarn', { text = ' ', texthl = 'DiagnosticSignWarn' })
+        vim.fn.sign_define('DiagnosticSignInfo', { text = ' ', texthl = 'DiagnosticSignInfo' })
+        vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
+      end
+    })
 
     -- For fun
-    use 'eandrju/cellular-automaton.nvim' 
-    
+    use 'eandrju/cellular-automaton.nvim'
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
@@ -62,54 +107,4 @@ require('packer').startup(function(use)
     end
 end)
 
--- Set color scheme
-vim.cmd [[ colorscheme onedark ]]
--- Set lualine as statusline, see `:help lualine.txt`
-require('lualine').setup {
-  options = {
-    icons_enabled = false,
-    theme = 'onedark',
-    component_separators = '|',
-    section_separators = '',
-  },
-}
-
--- Telescope 
--- See `:help telescope` and `:help telescope.setup()`
-pcall(require('telescope').load_extension, 'fzf') -- Enable telescope fzf native, if installed
-require('telescope').setup {
-  pickers = {
-    find_files = {
-      hidden = true
-    }
-  }
-}
-
--- Gitsigns
--- See `:help gitsigns.txt`
-require('gitsigns').setup {
-  signs = {
-    add = { text = '+' },
-    change = { text = '~' },
-    delete = { text = '_' },
-    topdelete = { text = '‾' },
-    changedelete = { text = '~' },
-  },
-}
-
--- Code commenting
-require('Comment').setup()
-
--- Tree
-require('nvim-tree').setup({
-  view = {
-    adaptive_size = true
-  },
-  -- Maybe we don't want this, maybe we do. Let's see.
-  -- actions = {
-  --   open_file = {
-  --     quit_on_open = true
-  --   }
-  -- }
-})
-
+require('plugin_configs.all')

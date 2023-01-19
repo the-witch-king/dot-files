@@ -1,11 +1,10 @@
 local o = vim.opt
 local g = vim.g
-local d = vim.diagnostic
 local api = vim.api
 
 o.showcmd = true
 o.number = true
-o.diffopt = vertical
+o.diffopt = 'vertical'
 o.splitbelow = true
 o.splitright = true
 o.swapfile = false
@@ -20,7 +19,7 @@ o.hlsearch = true
 o.incsearch = true
 
 -- Whitespace and such
-o.formatoptions = 'rnj1' -- q  - comment formatting; n - numbered lists; j - remove comment when joining lines; 1 - don't break after one-letter word
+o.formatoptions = 'qnj1' -- q  - comment formatting; n - numbered lists; j - remove comment when joining lines; 1 - don't break after one-letter word
 
 
 -- Indentation settings
