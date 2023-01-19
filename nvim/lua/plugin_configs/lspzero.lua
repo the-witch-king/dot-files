@@ -1,14 +1,20 @@
 -- LSP Zero setup
 -- Learn the keybindings, see :help lsp-zero-keybindings
 -- Learn to configure LSP servers, see :help lsp-zero-api-showcase
+--
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
+lsp.set_preferences({
+  set_lsp_keymaps = {omit = {'<F2>'}} -- Some of the defaults are silly
+})
+
 -- lsp.configure('tsserver', {
 --   single_file_support = false,
 --   on_attach = function(client, bufnr)
 --     print('hello tsserver')
 --   end
 -- })
+--
 
 -- Configures Pyright to use Poetry virtual environment instead of global
 lsp.configure('pyright', {
@@ -21,6 +27,7 @@ lsp.configure('pyright', {
     end
   end
 })
+
 lsp.nvim_workspace() -- (Optional) Configure lua language server for neovim
 lsp.setup()
 
