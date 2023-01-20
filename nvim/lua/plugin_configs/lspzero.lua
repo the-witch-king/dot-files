@@ -5,7 +5,13 @@
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
 lsp.set_preferences({
-  set_lsp_keymaps = {omit = {'<F2>'}} -- Some of the defaults are silly
+  set_lsp_keymaps = {
+    -- Some of the defaults are silly
+    omit = {
+      '<F2>',
+      '<C-k>'
+    }
+  }
 })
 
 -- lsp.configure('tsserver', {

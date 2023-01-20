@@ -38,3 +38,4 @@ nmap(leader.."-", ":Neotree"..cr)
 -- LSP
 set('n', leader.."rn", vim.lsp.buf.rename)
 set('n', leader.."ca", vim.lsp.buf.code_action)
+set('n', leader.."z", vim.lsp.buf.signature_help)
