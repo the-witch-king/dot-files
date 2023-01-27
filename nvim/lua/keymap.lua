@@ -22,15 +22,16 @@ nmap(leader .. "G", ":Grepper -tool rg" .. cr)
 nmap("-", ":Explore<CR>")
 
 -- Telescope
-local tb = "telescope.builtin"
-set("n", leader .. "f", require(tb).find_files)
-set("n", leader .. leader, require(tb).live_grep)
-set("n", leader .. "s", require(tb).grep_string)
-set("n", leader .. "h", require(tb).oldfiles)
+local tele = require("telescope")
+local tb = require("telescope.builtin")
+set("n", leader .. "f", tb.find_files)
+set("n", leader .. leader, tb.live_grep)
+set("n", leader .. "s", tb.grep_string)
+set("n", leader .. "h", tele.extensions.recent_files.pick)
 -- Maybe useful?
-set("n", leader .. "km", require(tb).keymaps)
-set("n", leader .. "kc", require(tb).commands)
-set("n", leader .. "mm", require(tb).marks)
+set("n", leader .. "km", tb.keymaps)
+set("n", leader .. "kc", tb.commands)
+set("n", leader .. "mm", tb.marks)
 
 -- Nvim Tree
 nmap(leader .. "-", ":Neotree" .. cr)
@@ -39,4 +40,4 @@ nmap(leader .. "-", ":Neotree" .. cr)
 set("n", leader .. "rn", vim.lsp.buf.rename)
 set("n", leader .. "ca", vim.lsp.buf.code_action)
 set("n", leader .. "z", vim.lsp.buf.signature_help)
-set("n", leader .. "f", vim.lsp.buf.format)
+set("n", leader .. "F", vim.lsp.buf.format)
