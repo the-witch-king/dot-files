@@ -26,6 +26,12 @@ require('packer').startup(function(use)
         {'williamboman/mason.nvim'},           -- Optional
         {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
+        -- Mason null-ls
+        {'jose-elias-alvarez/null-ls.nvim'},
+        {    'jay-babu/mason-null-ls.nvim'},
+        -- use("jose-elias-alvarez/nvim-lsp-ts-utils")
+
+
         -- Autocompletion
         {'hrsh7th/nvim-cmp'},                  -- Required
         {'hrsh7th/cmp-nvim-lsp'},              -- Required
@@ -78,8 +84,14 @@ require('packer').startup(function(use)
     -- Git
     use 'tpope/vim-fugitive' -- Git in Vim
     use 'tpope/vim-rhubarb' -- Github in Vim
-    use 'rhysd/git-messenger.vim' -- 'Git lens
+    use 'rhysd/git-messenger.vim' -- git lens?
     use 'lewis6991/gitsigns.nvim' -- Shows git status of lines in gutter
+
+    -- Grabs github url for current line, kinda neat
+    -- use {
+    --   'ruifm/gitlinker.nvim',
+    --   requires = 'nvim-lua/plenary.nvim',
+    -- }
 
     -- File tree
     use({
