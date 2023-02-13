@@ -55,8 +55,8 @@ null_ls.setup({
 require('mason-null-ls').setup({
   ensure_installed = {
     -- Python
-    'black',
     'ruff',
+    'black',
 
     -- TS/JS
     'eslint',

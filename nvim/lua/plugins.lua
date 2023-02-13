@@ -66,6 +66,7 @@ require("packer").startup(function(use)
 
 	-- Editing Utils
 	use("numToStr/Comment.nvim") -- 'gc' to comment visual regions/lines
+	use("ranelpadon/python-copy-reference.vim")
 
 	-- Telescope; Fuzzy Finder (files, lsp, etc)
 	use({
@@ -90,12 +91,7 @@ require("packer").startup(function(use)
 	use("tpope/vim-rhubarb") -- Github in Vim
 	use("rhysd/git-messenger.vim") -- git lens?
 	use("lewis6991/gitsigns.nvim") -- Shows git status of lines in gutter
-
-	-- Grabs github url for current line, kinda neat
-	-- use {
-	--   'ruifm/gitlinker.nvim',
-	--   requires = 'nvim-lua/plenary.nvim',
-	-- }
+	use({ "ruifm/gitlinker.nvim", requires = "nvim-lua/plenary.nvim" }) -- Grabs github url for current line, kinda neat
 
 	-- File tree
 	use({
