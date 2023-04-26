@@ -119,7 +119,7 @@ alias saveay="\cp ~/.config/alacritty/alacritty.yml ~/code/dot-files/alacritty.y
 alias saveconfigs="savevim; saverc; saveay;"
 
 # Clear Branches
-alias git-clean='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
+alias git-clean='git branch | egrep -v "(^\*|master|main)" | xargs git branch -D'
 
 # We use nvim for everything.
 alias vim="nvim"
@@ -149,6 +149,9 @@ alias f="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'
 # direnv
 eval "$(direnv hook zsh)"
 
+# Float
+alias pshell="NATIVE=true bin/manage shell_plus"
+
 #######################################
 # Everything below here is MacOS only #
 #######################################
@@ -162,3 +165,5 @@ export PATH="/Users/mike/.local/bin:$PATH" # Poetry
 export PATH=$PATH:$HOME/.local/bin # Poetry & others
 export GPG_TTY=$(tty)
 
+# opam configuration
+[[ ! -r /Users/mike/.opam/opam-init/init.zsh ]] || source /Users/mike/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

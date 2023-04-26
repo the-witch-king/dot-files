@@ -46,13 +46,15 @@ require("packer").startup(function(use)
 	})
 
 	-- Treesitter
-	use({ -- Highlight, edit, and navigate code
+	use({
+		-- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
 			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
 		end,
 	})
-	use({ -- Additional text objects via treesitter
+	use({
+		-- Additional text objects via treesitter
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		after = "nvim-treesitter",
 	})
@@ -67,6 +69,10 @@ require("packer").startup(function(use)
 	-- Editing Utils
 	use("numToStr/Comment.nvim") -- 'gc' to comment visual regions/lines
 	use("ranelpadon/python-copy-reference.vim")
+	use("norcalli/nvim-colorizer.lua") -- Used to show colors of hex codes and such
+
+	-- AI
+	use("github/copilot.vim")
 
 	-- Telescope; Fuzzy Finder (files, lsp, etc)
 	use({
@@ -102,17 +108,6 @@ require("packer").startup(function(use)
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
 		},
-
-		config = function()
-			-- Unless you are still migrating, remove the deprecated commands from v1.x
-			vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-
-			-- If you want icons for diagnostic errors, you'll need to define them somewhere:
-			vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
-			vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
-			vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
-			vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
-		end,
 	})
 
 	-- For fun

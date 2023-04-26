@@ -6,8 +6,7 @@ require("neo-tree").setup({
   close_if_last_window = true,
   popup_border_style = "rounded",
   enable_git_status = true,
-  enable_diagnostics = true,
-  sort_case_insensitive = false, -- used when sorting files and directories in the tree
+  enable_diagnostics = true, sort_case_insensitive = false, -- used when sorting files and directories in the tree
   default_component_configs = {
     container = {
       enable_character_fade = true,
@@ -73,7 +72,7 @@ require("neo-tree").setup({
         nowait = true, -- disable `nowait` if you have existing combos starting with this char that you want to use
       },
       -- ["<2-LeftMouse>"] = "open",
-      ["<cr>"] = "close_on_open",
+      -- ["<cr>"] = "close_on_open",
       ["S"] = "open_split",
       ["s"] = "open_vsplit",
       -- ["S"] = "split_with_window_picker",

@@ -9,6 +9,11 @@ nmap("<C-J>", "<C-W><C-J>")
 nmap("<C-K>", "<C-W><C-K>")
 nmap("<C-L>", "<C-W><C-L>")
 nmap("<C-H>", "<C-W><C-H>")
+-- Resizing splits
+nmap(leader .. "k", [[ :resize -5 ]] .. cr)
+nmap(leader .. "j", [[ :resize +5 ]] .. cr)
+nmap(leader .. ".", [[ :vertical resize -5 ]] .. cr)
+nmap(leader .. ",", [[ :vertical resize +5 ]] .. cr)
 
 -- Copy filename + path (relative) to clipboard
 nmap(leader .. "pp", [[ :let @+=expand("%") ]] .. cr)
@@ -43,5 +48,11 @@ set("n", leader .. "ca", vim.lsp.buf.code_action)
 set("n", leader .. "z", vim.lsp.buf.signature_help)
 set("n", leader .. "F", vim.lsp.buf.format)
 
+-- Colorizer
+nmap(leader .. "c", ":ColorizerToggle" .. cr)
+
 -- Python specific
-set("n", leader .. "dp", ":PythonCopyReferenceDotted"..cr..cr)
+set("n", leader .. "dp", ":PythonCopyReferenceDotted" .. cr .. cr)
+
+-- Copilot
+vim.api.nvim_set_keymap("i", "<C-Space>", 'copilot#Accept("<CR>")', { expr = true, silent = true })
