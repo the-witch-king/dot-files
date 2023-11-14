@@ -70,7 +70,6 @@ null_ls.setup({
 		}),
 		formatting.stylua,
 
-		formatting.black,
 		formatting.ruff,
 	},
 })
@@ -81,7 +80,6 @@ require("mason-null-ls").setup({
 	ensure_installed = {
 		-- Python
 		"ruff",
-		"black",
 
 		-- TS/JS
 		"eslint",
