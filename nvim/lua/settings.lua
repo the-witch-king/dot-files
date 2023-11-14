@@ -41,6 +41,8 @@ o.undofile = true
 
 -- Set colorscheme
 o.termguicolors = true
+-- vim.cmd([[colorscheme tokyonight]])
+vim.cmd([[colorscheme everforest]])
 
 -- Set completeopt to have a better completion experience
 o.completeopt = "menuone,noselect"
@@ -56,4 +58,5 @@ api.nvim_create_autocmd("TextYankPost", {
 	pattern = "*",
 })
 
+-- Copilot
 g.copilot_no_tab_map = true

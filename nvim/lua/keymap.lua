@@ -9,6 +9,7 @@ nmap("<C-J>", "<C-W><C-J>")
 nmap("<C-K>", "<C-W><C-K>")
 nmap("<C-L>", "<C-W><C-L>")
 nmap("<C-H>", "<C-W><C-H>")
+
 -- Resizing splits
 nmap(leader .. "k", [[ :resize -5 ]] .. cr)
 nmap(leader .. "j", [[ :resize +5 ]] .. cr)
@@ -47,6 +48,7 @@ set("n", leader .. "rn", vim.lsp.buf.rename)
 set("n", leader .. "ca", vim.lsp.buf.code_action)
 set("n", leader .. "z", vim.lsp.buf.signature_help)
 set("n", leader .. "F", vim.lsp.buf.format)
+set("n", leader .. "E", [[ :EslintFixAll ]] .. cr)
 
 -- Colorizer
 nmap(leader .. "c", ":ColorizerToggle" .. cr)

@@ -60,7 +60,8 @@ require("packer").startup(function(use)
 	})
 
 	-- Colors, Themes, and Visuals
-	use({ "catppuccin/nvim", as = "catppuccin" })
+	-- use("folke/tokyonight.nvim") -- Theme
+	use("sainnhe/everforest") -- Theme
 	use("nvim-lualine/lualine.nvim") -- Fancier statusline
 
 	-- Detect tabstop and shiftwidth automatically
@@ -69,6 +70,7 @@ require("packer").startup(function(use)
 	-- Editing Utils
 	use("numToStr/Comment.nvim") -- 'gc' to comment visual regions/lines
 	use("ranelpadon/python-copy-reference.vim")
+
 	use("norcalli/nvim-colorizer.lua") -- Used to show colors of hex codes and such
 
 	-- AI
