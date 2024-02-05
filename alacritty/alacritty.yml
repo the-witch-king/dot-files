@@ -1,0 +1,20 @@
+live_config_reload: true
+
+window:
+  decorations: None
+  opacity: 1
+  padding:
+    x: 15
+    y: 10
+
+font:
+  normal:
+    # family: 'Input Nerd Font'
+    family: "BlexMono Nerd Font"
+  size: 16
+  offset:
+    x: 1
+    y: 1
+
+import:
+  - ~/.config/alacritty/themes/themes/everforest_light.yaml
