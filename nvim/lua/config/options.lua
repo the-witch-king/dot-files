@@ -6,3 +6,4 @@ local opt = vim.opt
 
 opt.wrap = true
 opt.clipboard = ""
+opt.swapfile = false

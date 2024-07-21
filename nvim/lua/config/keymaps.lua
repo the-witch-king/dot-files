@@ -4,3 +4,5 @@
 local map = vim.keymap.set
 
 map("n", "<leader>fy", ":let @+=expand('%')<cr>", { desc = "Copy filename to clipboard" })
+map("n", "<leader><C-h>", "<cmd>vertical resize -15<cr>", { desc = "Decrease Window Width" })
+map("n", "<leader><C-l>", "<cmd>vertical resize +15<cr>", { desc = "Increase Window Width" })

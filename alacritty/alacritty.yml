@@ -1,20 +1,22 @@
 live_config_reload: true
 
 window:
-  decorations: None
-  opacity: 1
-  padding:
-    x: 15
-    y: 10
+    decorations: none
+    opacity: 1
+    padding:
+        x: 15
+        y: 10
 
 font:
-  normal:
-    # family: 'Input Nerd Font'
-    family: "BlexMono Nerd Font"
-  size: 16
-  offset:
-    x: 1
-    y: 1
+    normal:
+        # family: 'Input Nerd Font'
+        family: 'BlexMono Nerd Font Mono'
+        # family: 'GohuFont 11 Nerd Font Mono'
+        # family: 'ProggyClean Nerd Font Mono'
+    size: 18
+    offset:
+        x: 1
+        y: 1
 
 import:
-  - ~/.config/alacritty/themes/themes/gruvbox_dark.yaml
+    - ~/.config/alacritty/themes/themes/gruvbox_dark.yaml
