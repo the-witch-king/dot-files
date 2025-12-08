@@ -7,3 +7,8 @@ local opt = vim.opt
 opt.wrap = true
 opt.clipboard = ""
 opt.swapfile = false
+
+opt.ignorecase = false
+opt.smartcase = true
+
+-- vim.g.lazyvim_python_lsp = "basedpyright"

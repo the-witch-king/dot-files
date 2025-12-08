@@ -6,7 +6,7 @@ return {
   },
   -- No likey auto braces
   {
-    "echasnovski/mini.pairs",
+    "nvim-mini/mini.pairs",
     enabled = false,
   },
   -- disable search labels, this breaks forward searching too often
