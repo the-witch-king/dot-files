@@ -2,7 +2,7 @@ live_config_reload: true
 
 window:
     decorations: none
-    opacity: 1
+    opacity: 0.90
     padding:
         x: 15
         y: 10
@@ -13,7 +13,7 @@ font:
         family: 'BlexMono Nerd Font Mono'
         # family: 'GohuFont 11 Nerd Font Mono'
         # family: 'ProggyClean Nerd Font Mono'
-    size: 18
+    size: 16
     offset:
         x: 1
         y: 1
